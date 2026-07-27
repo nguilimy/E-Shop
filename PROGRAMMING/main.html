@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analog Clock — HTML, CSS &amp; JavaScript Tutorial</title>
+
+  <!-- Google Fonts: a serif face for the watch-style numerals, a sans face for UI text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+
+  <main class="stage">
+
+    <!--
+      The clock has 3 layers:
+        1. .clock-face   -> the dial itself (background, ticks, numerals, date window)
+        2. .hand-container -> one per hand; each is a full-size, invisible square that
+           we ROTATE. Rotating a full-size wrapper around its own center is the same
+           as rotating its contents around the clock's center — this is the trick
+           that makes the hand math simple in main.js.
+        3. .center-cap   -> the little cap pin in the middle, on top of everything
+    -->
+    <div class="clock" id="clock">
+      <div class="clock-face" id="clockFace">
+
+        <!-- Tick marks (60 of them) and numerals (I–XII) are injected by main.js,
+             so we don't have to hand-write 72 divs here. -->
+
+        <div class="date-window">
+          <span class="date-window__label">DATE</span>
+          <span id="dateNumber">--</span>
+        </div>
+
+        <div class="hand-container" id="hourHand">
+          <div class="hand hand--hour"></div>
+        </div>
+
+        <div class="hand-container" id="minuteHand">
+          <div class="hand hand--minute"></div>
+        </div>
+
+        <div class="hand-container" id="secondHand">
+          <div class="hand hand--second"></div>
+          <div class="hand hand--second-tail"></div>
+        </div>
+
+        <div class="center-cap"></div>
+      </div>
+    </div>
+
+    <p class="brand">ATELIER <span>·</span> No. 07</p>
+    <p class="caption">A CSS-rotated analog clock, updated live with JavaScript</p>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>
